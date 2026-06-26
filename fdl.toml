@@ -1,0 +1,27 @@
+name = "meti"
+command = "python main.py"
+
+[targets.default]
+url = "s3://${FDL_S3_BUCKET}"
+public_url = "https://data.queria.io"
+s3_endpoint = "${FDL_S3_ENDPOINT}"
+s3_access_key_id = "${FDL_S3_ACCESS_KEY_ID}"
+s3_secret_access_key = "${FDL_S3_SECRET_ACCESS_KEY}"
+
+[targets.local]
+url = "~/.local/share/fdl"
+public_url = "http://localhost:4001"
+
+[meta]
+license = "政府標準利用規約 第2.0版"
+license_url = "https://www.meti.go.jp/main/rules.html"
+title = "経済産業省 活動指数"
+description = """経済産業省 経済解析室が公表する第３次産業活動指数（2020年基準）。
+サービス産業の生産活動を業種別・月次の指数で示す。"""
+cover = "📈"
+tags = ['経済産業省', '第3次産業活動指数', 'サービス産業', '景気']
+repository_url = "https://github.com/flo8s/dataset-meti"
+schedule = "monthly"
+
+[meta.schemas]
+main.title = "メイン"

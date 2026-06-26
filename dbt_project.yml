@@ -1,0 +1,19 @@
+name: "meti"
+version: "1.0.0"
+
+profile: "meti"
+
+model-paths: ["models"]
+macro-paths: ["macros", "shared/macros"]
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  meti:
+    +database: meti
+    main:
+      raw:
+        +materialized: table
+      stg:
+        +materialized: view
+      mart:
+        +materialized: view

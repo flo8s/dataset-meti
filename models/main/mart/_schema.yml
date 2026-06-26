@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: tertiary_industry_activity_index
+    description: |
+      経済産業省 第３次産業活動指数（2020年基準）。サービス産業の生産活動を業種別・月次の
+      指数（2020年=100）で示す。季節調整済指数と原指数の2系列を series_type で区別して収録する。
+      業種（item_code / item_name）は「第３次産業総合」から日本標準産業分類の大分類・中分類・
+      個別業種までの階層を含む。ウエイト（weight）は2020年基準の付加価値額ウエイト。
+      出典: 経済産業省 経済解析室 第３次産業活動指数。
+      https://www.meti.go.jp/statistics/tyo/sanzi/
+    access: public
+    config:
+      meta:
+        title: "第３次産業活動指数（2020年基準・月次）"
+        published: true
+        source_url: "https://www.meti.go.jp/statistics/tyo/sanzi/"
+        tags: ["経済産業省", "第3次産業活動指数", "サービス産業", "景気", "指数"]
+    columns:
+      - name: item_code
+        meta:
+          title: 品目番号
+      - name: item_name
+        meta:
+          title: 品目名称（業種名）
+      - name: weight
+        meta:
+          title: ウエイト（2020年基準）
+      - name: series_type
+        meta:
+          title: 系列種別コード（seasonally_adjusted／original）
+      - name: series_type_ja
+        meta:
+          title: 系列種別名（季節調整済指数／原指数）
+      - name: year_month
+        meta:
+          title: 年月（YYYYMM）
+      - name: year
+        meta:
+          title: 年
+      - name: month
+        meta:
+          title: 月
+      - name: index_value
+        meta:
+          title: 指数値（2020年＝100）
